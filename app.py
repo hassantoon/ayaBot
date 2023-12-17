@@ -1,4 +1,7 @@
 import streamlit as st
+import asyncio
+import time
+
 def get_or_create_eventloop():
     try:
         return asyncio.get_event_loop()
