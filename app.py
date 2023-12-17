@@ -1,5 +1,6 @@
 from telegram import Bot, Update
-from telegram.ext import CommandHandler, MessageHandler, Filters
+from telegram.ext import CommandHandler, MessageHandler
+from telegram.ext.filters import Filters
 import requests
 import os
 import bs4
