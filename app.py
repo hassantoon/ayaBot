@@ -5,41 +5,11 @@ from telegram.ext import CommandHandler, MessageHandler, Filters
 import requests
 import os
 import bs4
-
-# Download directory
-SAVING_LOCATION = os.path.abspath(os.path.split(sys.argv[0])[0]) + "\\assets\\audios\\ar\\"
-
-# Surah data
-surah_data =Youtube Telegram Bot Abtkr, [2023-12-17 7:27 PM]
-import bs4
-import requests
-import os
 import sys
-def fromtnum(n) {
-newfromt=n
-if ( len(str(n))==1 )newfromt="00"+n
-elif ( len(str(n))==2) newfromt="0"+n
-return newfromt
-}
-App_PATH = os.path.abspath(os.path.split(sys.argv[0])[0])
-SavingLoction=App_PATH
-path=SavingLoction+f"\\assets\\audios\\ar\\"
-if not os.path.exists(path):
-os.makedirs(path)
-url = "http://verse.mp3quran.net/data/"+record+"/"+fromtnum(s)+fromtnum(a)+".mp3" # s for surah # a for aya
-r = requests.get(url)
-data = bs4.BeautifulSoup(r.text, "html.parser")
+# Download directory
+SAVING_LOCATION = os.path.abspath(os.path.split(sys.argv[0])[0]) + "\\assets\\audios\\ar\\
 
-for l in data.find_all("a"):
-print(l["href"])
-try:
-r = requests.get(url + l["href"])
-with open(path+ l["href"], 'wb') as f:
-#data.raw.decode_content = True
-f.write(r.content)
-except Exception as e :
-print(e)
-#http://verse.mp3quran.net/data/"+record+"/"+fromtnum(s)+fromtnum(a)+".mp3 var surahdata= [[]
+surah_data= [[]
 ,[0,7,5,1,'الفاتحة',"Al-Faatiha",'The Opening','Meccan']
 ,[7,286,87,40,'البقرة',"Al-Baqara",'The Cow','Medinan']
 ,[293,200,89,20,'آل عمران',"Aal-i-Imraan",'The Family of Imraan','Medinan']
