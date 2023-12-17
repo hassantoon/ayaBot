@@ -230,16 +230,19 @@ def start_command(update, context):
 def handle_message(update, context):
     download_and_send_surah(update, context)
     
-# Create the Application and pass it your bot's token.
-application = Application.builder().token("5013223096:AAH2QsWB8_aDtwtiKJK44SD-p4AgyUBXCPs").build()
+def main() -> None:
+    """Run bot."""
+    # Create the Application and pass it your bot's token.
+    application = Application.builder().token("TOKEN").build()
 
-# on different commands - answer in Telegram
-application.add_handler(CommandHandler(["start", "help"], start_command))
-application.add_handler(CommandHandler("get", handle_message))
+    # on different commands - answer in Telegram
+    application.add_handler(CommandHandler(["start", "help"], start_command))
+    application.add_handler(CommandHandler("get", handle_message))
 
-# Run the bot until the user presses Ctrl-C
-application.run_polling(allowed_updates=Update.ALL_TYPES)
+    # Run the bot until the user presses Ctrl-C
+    application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
-# Start the bot
-bot.polling(True)
+if __name__ == "__main__":
+    main()
+
