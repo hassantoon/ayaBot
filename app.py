@@ -13,7 +13,7 @@ def get_or_create_eventloop():
 
 loop = get_or_create_eventloop()
 asyncio.set_event_loop(loop)
-loop.close()
+#loop.close()
 import telebot
 import telegram
 from telegram import Bot, Update
