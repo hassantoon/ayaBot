@@ -17,7 +17,7 @@ asyncio.set_event_loop(loop)
 import telebot
 import telegram
 from telegram import Bot, Update
-from telegram.ext import Application, CommandHandler, MessageHandler
+from telegram.ext import Application, CommandHandler, MessageHandler , ContextTypes
 from telegram.ext import filters
 import requests
 import os
