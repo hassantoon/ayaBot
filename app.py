@@ -238,9 +238,9 @@ def download_and_send(surah_num, ayah_num):
 bot = Bot(token="5013223096:AAH2QsWB8_aDtwtiKJK44SD-p4AgyUBXCPs")  # Replace "" with your bot's API token
 # Command handler for /start
 
-def start_command(update, context):
-    welcome_message = "Welcome to your Quran Bot! Send surah_number ayah_number to download an ayah."
-    context.bot.send_message(update.chat_id, welcome_message)
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Sends explanation on how to use the bot."""
+    await update.message.reply_text("Hi! Use /set <seconds> to set a timer")
 
 
 def handle_message(update, context):
@@ -252,8 +252,8 @@ def main() -> None:
     application = Application.builder().token("TOKEN").build()
 
     # on different commands - answer in Telegram
-    application.add_handler(CommandHandler(["start", "help"], start_command))
-    application.add_handler(CommandHandler("get", handle_message))
+    application.add_handler(CommandHandler(["start", "help"], start))
+    #application.add_handler(CommandHandler("get", handle_message))
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling()
