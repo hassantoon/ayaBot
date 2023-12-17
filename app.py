@@ -1,4 +1,5 @@
 import telebot
+import telegram
 from telegram import Bot, Update
 from telegram.ext import CommandHandler, MessageHandler
 from telegram.ext import filters
@@ -220,17 +221,18 @@ def download_and_send(surah_num, ayah_num):
 # Bot initialization
 bot = Bot(token="5013223096:AAH2QsWB8_aDtwtiKJK44SD-p4AgyUBXCPs")  # Replace "" with your bot's API token
 # Command handler for /start
-@bot.message_handler(commands=['start'])
-def start(update, context):
+
+def start_command(update, context):
     welcome_message = "Welcome to your Quran Bot! Send surah_number ayah_number to download an ayah."
     context.bot.send_message(update.chat_id, welcome_message)
 
-# Message handler for all other messages
-@bot.message_handler(filters=Filters.text)
+
 def handle_message(update, context):
     download_and_send_surah(update, context)
+# Add handlers for commands and messages
+bot.add_handler(telegram.CommandHandler("start", start_command))
+bot.add_handler(telegram.MessageHandler(telegram.Filters.text, handle_message))
 
-# Run the bot
-bot.run_polling()
 
-bot.polling()
+# Start the bot
+bot.polling(True)
