@@ -7,7 +7,7 @@ import os
 import bs4
 import sys
 # Download directory
-SAVING_LOCATION = os.path.abspath(os.path.split(sys.argv[0])[0]) + "\\assets\\audios\\ar\\
+SAVING_LOCATION = os.path.abspath(os.path.split(sys.argv[0])[0]) + "\\assets\\audios\\ar\\"
 
 surah_data= [[]
 ,[0,7,5,1,'الفاتحة',"Al-Faatiha",'The Opening','Meccan']
