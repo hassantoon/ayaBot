@@ -141,7 +141,7 @@ def download_and_send_surah(update, context):
     except ValueError:
         context.bot.send_message(update.chat_id, "Invalid format! Please send surah_number ayah_number")
         return
-    for ayah_num  in [1,surah_data[surah_num][1]]  
+    for ayah_num  in range(1,surah_data[surah_num][1]):  
         download_and_send(surah_num, ayah_num):    
 def  download_and_send_ayah(update, context):
     # Extract surah and ayah numbers from user message
