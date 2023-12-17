@@ -1,7 +1,7 @@
 import telebot
 import telegram
 from telegram import Bot, Update
-from telegram.ext import CommandHandler, MessageHandler
+from telegram.ext import Application, CommandHandler, MessageHandler
 from telegram.ext import filters
 import requests
 import os
@@ -229,9 +229,16 @@ def start_command(update, context):
 
 def handle_message(update, context):
     download_and_send_surah(update, context)
-# Add handlers for commands and messages
-bot.add_handler(telegram.CommandHandler("start", start_command))
-bot.add_handler(telegram.MessageHandler(telegram.Filters.text, handle_message))
+    
+# Create the Application and pass it your bot's token.
+application = Application.builder().token("5013223096:AAH2QsWB8_aDtwtiKJK44SD-p4AgyUBXCPs").build()
+
+# on different commands - answer in Telegram
+application.add_handler(CommandHandler(["start", "help"], start_command))
+application.add_handler(CommandHandler("get", handle_message))
+
+# Run the bot until the user presses Ctrl-C
+application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
 # Start the bot
