@@ -249,7 +249,7 @@ def handle_message(update, context):
 def main() -> None:
     """Run bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("TOKEN").build()
+    application = Application.builder().token("5013223096:AAH2QsWB8_aDtwtiKJK44SD-p4AgyUBXCPs").build()
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler(["start", "help"], start))
