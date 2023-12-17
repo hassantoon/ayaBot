@@ -1,3 +1,4 @@
+import telebot
 from telegram import Bot, Update
 from telegram.ext import CommandHandler, MessageHandler
 from telegram.ext import filters
